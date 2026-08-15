@@ -75,16 +75,3 @@ MIT — builds on colibri's foundation, contributes back what's general.
 ---
 
 *The Cormorant dives. The Gullwing watches. The Kestrel carries.*
-MDEOF
-
-# Commit and push the clean README
-git add README.md
-git commit -m "Clean professional README
-
-- Remove raw code blocks from front page
-- Add architecture summary
-- Add honest benchmark table
-- Add quick start guide
-- Add acknowledgements"
-git push origin main 2>&1 | tail -5
-```
