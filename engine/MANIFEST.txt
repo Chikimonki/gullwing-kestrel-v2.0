@@ -1,0 +1,12 @@
+kestrel-manifest v2
+date: 2026-08-09T23:54:51Z
+colibri-repo: https://github.com/JustVugg/colibri.git
+colibri-commit: 8f512fc8c2f48ffa18cd624cd4a5bcaae4a4abfc
+colibri-license: Apache-2.0 (LICENSE vendored)
+waste-repo: https://github.com/sqliteai/waste.git
+waste-commit: d9b919a791148b571e643d0af666bf19b4d733ab
+waste-license: Apache-2.0 (check LICENSE vendored)
+engine-binary: /mnt/d/moabi/gullwing-kestrel/engine/vendor/colibri/c/coli
+engine-sha256: ba0064ed7daee4892dfa8b8f893dc027609c651438c76dc9012404227c9c5fe6
+model-dir: /mnt/d/models
+tabfm: EVALUATED-NOT-ADOPTED (weights non-commercial) — see design doc §8.2

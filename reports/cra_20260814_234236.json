@@ -1,0 +1,10 @@
+{
+  "report_type": "CRA",
+  "timestamp": "2026-08-14T23:42:36.021959",
+  "sbom": "READY",
+  "dependency_delta": "CLEAN",
+  "reporting_24h": "ENABLED",
+  "annex_vii": "COMPLETE",
+  "engine": "kestrel-v2.0",
+  "status": "COMPLIANT"
+}

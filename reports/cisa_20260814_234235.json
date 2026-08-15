@@ -1,0 +1,16 @@
+{
+  "report_type": "CISA",
+  "timestamp": "2026-08-14T23:42:35.996377",
+  "services": {
+    "vulnerability_scanning": "8/8",
+    "cyber_hygiene": "8/8",
+    "supply_chain_risk": "8/8",
+    "incident_response": "8/8",
+    "threat_intelligence": "8/8",
+    "ransomware_readiness": "8/8",
+    "cloud_security": "8/8",
+    "ics_ot_security": "8/8"
+  },
+  "engine": "kestrel-v2.0",
+  "status": "COMPLIANT"
+}

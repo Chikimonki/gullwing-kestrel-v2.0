@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "path": "/bin/ls",
+  "size": 142312,
+  "risk_score": 0.055,
+  "verdict": "BENIGN",
+  "timestamp": "2026-08-15T00:01:07.519549",
+  "engine": "kestrel-v2.0",
+  "experts_used": 8,
+  "llm_model": "phi4-mini"
+}
