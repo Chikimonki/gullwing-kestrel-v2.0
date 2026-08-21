@@ -12,6 +12,30 @@
 
 <span style="color:#B0BEC5">Zig kernels (AVX2) · LuaJIT policy · Recognition cache · Hybrid storage · Event log</span>
 
+<br>
+
+[![Kestrel Demo](https://img.youtube.com/vi/bFVrP7GcWYM/0.jpg)](https://youtu.be/bFVrP7GcWYM "Click to play — Kestrel + Gullwing 8-layer")
+<br>
+<span style="color:#B0BEC5">▶ Click to play — same engine as Gullwing Protocol</span>
+· <a href="https://www.youtube.com/@Peter-i8b9b" style="color:#29B6F6">More on @Peter-i8b9b</a>
+
+</div>
+
+<br>
+
+## 🎥 Video & Channel
+
+<div align="center">
+
+[![Gullwing + Kestrel](https://img.youtube.com/vi/bFVrP7GcWYM/hqdefault.jpg)](https://youtu.be/bFVrP7GcWYM)
+<br>
+**Full pipeline uses Kestrel — watch the 2:34 demo (Gullwing Protocol)**
+<br>
+<span style="color:#B0BEC5">Kestrel's Zig AVX2 + recognition cache powers the 25ms analysis</span>
+<br><br>
+[![YouTube Channel](https://img.shields.io/badge/YouTube-@Peter--i8b9b-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/@Peter-i8b9b)
+[![PartyVault Demo](https://img.shields.io/badge/PartyVault-YouTube-FF0000?style=flat-square&logo=youtube)](https://youtu.be/XfMyYXfSPfA)
+
 </div>
 
 <br>
