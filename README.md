@@ -7,6 +7,8 @@
 [![Zig](https://img.shields.io/badge/Zig-0.13.0-FFA726?style=for-the-badge&logo=zig)](https://ziglang.org)
 [![LuaJIT](https://img.shields.io/badge/LuaJIT-FFI-2C75FF?style=for-the-badge)](https://luajit.org)
 [![Tests](https://img.shields.io/badge/tests-cache_77.6x-00C853?style=for-the-badge)](#-honest-benchmarks)
+[![Stars](https://img.shields.io/github/stars/Chikimonki/gullwing-kestrel-v2.0?style=social)](https://github.com/Chikimonki/gullwing-kestrel-v2.0/stargazers)
+[![Forks](https://img.shields.io/github/forks/Chikimonki/gullwing-kestrel-v2.0?style=social)](https://github.com/Chikimonki/gullwing-kestrel-v2.0/forks)
 
 <br>
 
