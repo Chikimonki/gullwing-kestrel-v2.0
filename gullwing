@@ -1,0 +1,121 @@
+---
+syntax: bash
+tags: [ gullwing, forensics, zig, luajit, sbom, cra, partyvault, kestrel ]
+---
+
+                          +@@@@@@@@@        
+                        @..:..:..::-@@@@    
+                       #.=%%+=+****==:*@@   
+                      @::*++**+**+**%@@#@@  
+                       @..:...:-##*#*#*##@  
+                        @@-@@=*+++=++*+@@.  
+                      @@@@@@@@@@@@@@@@@@    
+
+          gullwing — convergent binary intelligence
+          github.com/Chikimonki/Gullwing-Protocol
+          Fresh Forensics style — 1 file to evidence everything
+
+# Quick Start — Gullwing-Protocol (Cormorant / WSL2 Ubuntu)
+
+## Analyze any binary (25ms static, 8-layer)
+gullwing reflect /usr/bin/ls
+luajit src/moabi-ml.lua train reports/training reports/system.model
+
+## Monitor supply chain (2s detection)
+gullwing watch /usr/bin 5.0
+
+## Start Cormorant Bus + API + Frontend
+gullwing bus
+curl localhost:4000/health
+curl localhost:4000/fleet
+luajit src/moabi-wcc-api.lua &
+cd src/extension && python3 -m http.server 8080  # -> http://127.0.0.1:8080/unified.html
+
+## Forensic build evidence (the 1 file)
+./forensics_capture.sh
+./forensics_capture.sh --no-build
+./forensics_capture.sh --report-dir forensics_report_manual
+tar czf forensics_report.tgz forensics_report_*
+ls -lh forensics_report_*/SUMMARY.md
+
+# Kestrel v2.0 — Zig + LuaJIT FFI accelerator (51.6x cache, 2.97x matmul)
+
+## Build Zig shared lib
+cd 03-ffi-bridge && zig build-lib bridge_v2.zig -dynamic -O ReleaseFast -lc -femit-bin=../libkestrel_v2.so
+
+## Start Kestrel
+OLLAMA_MODELS=/mnt/d/Ollama/models ollama serve
+python3 kestrel_server_final.py          # -> http://127.0.0.1:9394/
+./start_kestrel.sh && ./start_frontend.sh
+
+## Test Kestrel (honest benchmarks, parity checks)
+./test_kestrel.sh
+luajit test_cache_real.lua
+luajit test_features.lua
+cat benchmarks/*.json | head -n50
+cat reports/*SUMMARY* 2>/dev/null | head -n30
+
+# PartyVault — Cryptographic Party Identity (Perl -> Zig -> LuaJIT -> Julia)
+
+## Setup & run (19 PASS suite)
+chmod +x setup.sh run_demo.sh
+./setup.sh && ./run_demo.sh
+./tests/partyvault_tests.sh               # pinned counts, LEI oracle, T05 cross-layer, ML determinism
+cat output/quality_report.txt 2>/dev/null | head -n50
+
+## Pipeline debug (per-language)
+perl perl/cleanse.pl data/parties.csv
+zig build run -- data/cleansed_parties.csv
+luajit lua/classify.lua fingerprinted_parties.txt
+julia --project julia/analytics.jl
+
+# Evidence / Compliance — CRA, CISA, DORA
+
+## Generate SBOM + attestation
+syft . -o cyclonedx-json > sbom.cyclonedx.json
+syft packages /usr/bin/ls -o cyclonedx-json | head -n30
+openssl dgst -sha256 -sign <(openssl pkey -in private.pem) sbom.cyclonedx.json > sbom.sig
+gullwing reflect /usr/bin/ls --sbom --attest  # wrapper if available
+
+## Verify proof bundle (CRA Annex VII)
+ls releases/v1.0-*/proof_bundle* 2>/dev/null | head
+cat reports/*CRA* 2>/dev/null | head -n40
+sha256sum forensics_report_*/hashlist.txt 2>/dev/null | head
+
+# Investigate / Hunt (Doug-style forensics on Gullwing outputs)
+
+## Find recent tampered binaries (like find /lib -newermt)
+find bin/ build/ zig-out/ -type f -newermt "$(date -d '1 day ago' +'%Y-%m-%d')" -exec ls -lh {} \;
+
+## Diff supply chain
+diff -u <(cat reports/training/clean.manifest) <(cat reports/training/tampered.manifest) | head -n100
+gullwing reflect /usr/bin/ls --delta --json | jq .delta
+
+## Check hashes against attested list
+sha256sum bin/* | sort > current.sha256 && diff -u forensics_report_*/hashlist.txt current.sha256 | head
+
+## YARA + LLM rule hunt
+yara -r rules/ bin/ 2>&1 | head -n50
+
+# Install this cheat sheet (Fresh Forensics freshsh33t.sh style)
+
+## Find personal cheat dir
+cheat -d
+## e.g. /home/<you>/.config/cheat/cheatsheets/personal
+
+## Copy (manual)
+mkdir -p ~/.config/cheat/cheatsheets/personal
+cp gullwing ~/.config/cheat/cheatsheets/personal/gullwing
+
+## Use
+cheat gullwing
+cheat gullwing | grep -i sbom
+cheat -t gullwing  # tags
+
+       	  __  __                     __
+	 / /_/ /  ___   ___ ___  ___/ /
+	/ __/ _ \/ -_) / -_) _ \/ _  / 
+	\__/_//_/\__/  \__/_//_/\_,_/
+       ---------------------------------
+    https://github.com/DouglasFreshHabian/Cheatsh33ts
+    https://github.com/Chikimonki/Gullwing-Protocol
